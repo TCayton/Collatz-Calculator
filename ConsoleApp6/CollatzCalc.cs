@@ -10,7 +10,7 @@ namespace ConsoleApp6
         {
             // values to begin from should user wish to continue from largest tested number
             var x = BigInteger.Parse("100304170900795686912");
-            var y = BigInteger.Parse("200000000000000000000");
+            var max = BigInteger.Parse("200000000000000000000");
             List<BigInteger> sequence = new List<BigInteger>();
             // option to choose to enter 'own' number or continue
             Console.Write("Would you like to use your own number or continue? (write 'own' or 'continue'): ");
@@ -50,7 +50,7 @@ namespace ConsoleApp6
                 do
                 {
                     var input = x++; // number will iterate each time and keep going until the y variable has been exceeded (to prevent the program from running indefinitely).
-                    var number = input;
+                    var store = input; // here store is assigned so that it can retain the original inputted value for use later.
                     Console.WriteLine("Initial Number: {0}", input);
                     do
                     {
@@ -67,8 +67,8 @@ namespace ConsoleApp6
                             sequence.Add(input);
                         }
                     } while (input != 1);
-                    Console.WriteLine("There are {0} numbers in the Collatz sequence for {1}.", sequence.Count, number);
-                } while (x < y);
+                    Console.WriteLine("There are {0} numbers in the Collatz sequence for {1}.", sequence.Count, store);
+                } while (x < max);
             }
             else // this just allows a user to enter something other than 'own' or 'continue' but gives advice on where they went wrong
                 Console.WriteLine("It seems you entered incorrectly, please close the program and try again (make sure to enter only 'own' or 'continue' without the quotation marks).");
